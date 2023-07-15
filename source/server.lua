@@ -42,3 +42,5 @@ function LogToDiscord(username, args)
         print("Headers:", resultHeaders)
     end, 'POST', json.encode({username = "LifeInvade", embeds = embed}), { ['Content-Type'] = 'application/json' })
 end
+
+print('Lifeinvader by scentral')
