@@ -1,5 +1,5 @@
 # Lifeinvader
-This is a standalone Lifeinvader "tweeter" that allows users to display their message on every screen. Making a more unique approach to the social aspect of the game. 
+This is a standalone Lifeinvader "tweeter" that allows users to display their message on every screen. Making a more unique approach to the social aspect of the game. I got this idea from MidwestRP and credit the design to them.
 
 [Preview](https://www.youtube.com/watch?v=VV-5OzhhDE4)
 [Discord](https://discord.gg/YAeUB5cYbK)
