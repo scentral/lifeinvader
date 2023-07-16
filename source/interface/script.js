@@ -7,12 +7,13 @@ $(function() {
                 postElement.append('<h1><span id="bold">Life</span>invader</h1>');
                 postElement.append('<p><span id="username">' + item.username + '</span> posted a status update</p>');
                 postElement.append('<hr id="divider">');
-                postElement.append('<div id="content"><p><span id="post-content">' + item.message + '</span></p></div>');
+                
+                var sanitizedMessage = sanitizeMessage(item.message);
+                postElement.append('<div id="content"><p><span id="post-content">' + sanitizedMessage + '</span></p></div>');
                 postElement.append('<div class="time-left"></div>');
                 
                 $("#posts-container").prepend(postElement);
                 if ($("#posts-container").children().length > 3) {
-                    // add the slideout animation
                     $("#posts-container").children().last().css("animation", "slideOutToRight 0.5s ease-in-out");
                     $("#posts-container").children().last().remove();
                 }
@@ -33,3 +34,18 @@ $(function() {
         }
     });
 });
+
+function sanitizeMessage(message) {
+  const sanitizedMessage = message.replace(/<\/?[^>]+(>|$)/g, '');
+  const escapedMessage = escapeHtmlEntities(sanitizedMessage);
+
+  return escapedMessage;
+}
+
+function escapeHtmlEntities(text) {
+  return text.replace(/&/g, '&amp;')
+             .replace(/</g, '&lt;')
+             .replace(/>/g, '&gt;')
+             .replace(/"/g, '&quot;')
+             .replace(/'/g, '&#039;');
+}
