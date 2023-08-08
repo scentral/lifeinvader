@@ -19,9 +19,10 @@ $(function() {
                 }
 
                 $(".time-left").each(function() {
+                    var time = 15000 + ($(this).parent().find("#content").text().length * 100);
                     $(this).animate({
                         width: "0%"
-                    }, 15000, function() {
+                    }, time, function() {
                         $("#posts-container").children().last().css("animation", "slideOutToRight 0.5s ease-in-out");
                         setTimeout(function() {
                             $("#posts-container").children().last().remove();
